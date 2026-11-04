@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>glide. Privacy Policy</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Privacy policy for glide., the endless runner by Yehia Waleed Development.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;500&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+  /* Layout: one quiet reading column, the game's wordmark up top, a summary table, then numbered-free sections. */
+  :root {
+    --bg: #f6f6f8;
+    --surface: #ffffff;
+    --ink: #1c1c21;
+    --muted: #5c5d68;
+    --line: #e2e2e8;
+    --red: #db1f24;
+    --gold: #b98307;
+    --gold-soft: #fbf1d8;
+    --display: "Outfit", "Segoe UI", system-ui, sans-serif;
+    --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "Consolas", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121215; --surface: #1a1a1f; --ink: #ececf1; --muted: #9b9ca8; --line: #2b2b33;
+      --red: #ff4b50; --gold: #f0b43a; --gold-soft: #2e2615; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121215; --surface: #1a1a1f; --ink: #ececf1; --muted: #9b9ca8; --line: #2b2b33;
+    --red: #ff4b50; --gold: #f0b43a; --gold-soft: #2e2615; color-scheme: dark;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 16px/1.65 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 56px 72px;
+    display: grid;
+    gap: 40px;
+  }
+
+  header { display: grid; gap: 10px; }
+  .wordmark {
+    font: 200 clamp(56px, 12vw, 88px)/0.95 var(--display);
+    letter-spacing: -0.02em;
+    margin: 0;
+    animation: glide-in 0.9s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .wordmark .dot { color: var(--red); }
+  .doc-title { font: 300 clamp(24px, 5vw, 30px)/1.2 var(--display); margin: 0; text-wrap: balance; }
+  .meta {
+    font: 400 13px/1.5 var(--mono);
+    color: var(--muted);
+    display: flex; flex-wrap: wrap; gap: 4px 14px;
+  }
+  @keyframes glide-in { from { transform: translateX(-24px); opacity: 0.001; } to { transform: none; opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .wordmark { animation: none; } }
+
+  .lede { font-size: 18px; color: var(--ink); margin: 0; max-width: 62ch; }
+
+  .glance {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px 22px 8px;
+    display: grid; gap: 10px;
+  }
+  .label {
+    font: 500 12px/1 var(--body);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+  }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 520px; }
+  th, td { text-align: left; vertical-align: top; padding: 12px 12px 12px 0; border-top: 1px solid var(--line); }
+  thead th { border-top: 0; font: 500 12px/1.4 var(--body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-top: 4px; }
+  td:first-child { font-weight: 600; width: 34%; }
+  .chip {
+    display: inline-block;
+    font: 500 12px/1 var(--body);
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: var(--gold-soft);
+    color: var(--gold);
+    white-space: nowrap;
+    margin: 0 4px 4px 0;
+  }
+  .chip.all { background: transparent; color: var(--muted); border: 1px solid var(--line); }
+
+  nav ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  nav a {
+    display: inline-block;
+    font-size: 14px;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+  }
+  nav a:hover { border-color: var(--muted); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  main { display: grid; gap: 36px; }
+  section { display: grid; gap: 10px; scroll-margin-top: 24px; min-width: 0; }
+  h2 { font: 300 24px/1.25 var(--display); margin: 0; text-wrap: balance; }
+  h2 .dot { color: var(--red); }
+  p, li { max-width: 66ch; }
+  p { margin: 0; }
+  ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+  a { color: var(--ink); text-decoration-color: var(--red); text-underline-offset: 3px; }
+  .muted { color: var(--muted); }
+
+  .contact {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px;
+    display: grid; gap: 12px;
+  }
+  .email-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+  .email {
+    font: 400 15px/1.4 var(--mono);
+    padding: 9px 12px;
+    border-radius: 10px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    user-select: all;
+    overflow-wrap: anywhere;
+  }
+  button {
+    font: 500 14px/1 var(--body);
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 0;
+    background: var(--ink);
+    color: var(--bg);
+    cursor: pointer;
+  }
+  footer { font: 400 13px/1.5 var(--mono); color: var(--muted); border-top: 1px solid var(--line); padding-top: 18px; }
+</style>
+<style>html{color-scheme:light dark}body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <p class="wordmark" aria-label="glide.">glide<span class="dot">.</span></p>
+    <h1 class="doc-title">Privacy Policy</h1>
+    <div class="meta">
+      <span>Yehia Waleed Development</span>
+      <span>Effective 4 November 2026</span>
+    </div>
+  </header>
+
+  <p class="lede">glide. is a game about going fast, not about collecting data. Your progress lives on your device. The only data that leaves it is what Google needs to show ads and process purchases in the Android version.</p>
+
+  <div class="glance" aria-labelledby="glance-label">
+    <p class="label" id="glance-label">At a glance</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th scope="col">Data</th><th scope="col">What happens to it</th><th scope="col">Where</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Scores, coins, ranks, settings, levels you build</td>
+            <td>Saved on your device only. We never receive it.</td>
+            <td><span class="chip all">All versions</span></td>
+          </tr>
+          <tr>
+            <td>Advertising ID, IP address, device and ad-interaction data</td>
+            <td>Used by Google AdMob to show and measure ads, with your consent where the law requires it.</td>
+            <td><span class="chip">Google Play</span><span class="chip">Play Games on PC</span></td>
+          </tr>
+          <tr>
+            <td>Purchases (coin packs and other items)</td>
+            <td>Paid through Google Play. We get a confirmation to deliver what you bought, never your payment details.</td>
+            <td><span class="chip">Google Play</span><span class="chip">Play Games on PC</span></td>
+          </tr>
+          <tr>
+            <td>Name, email, contacts, photos, precise location</td>
+            <td>Not collected. glide. has no accounts and no sign-in.</td>
+            <td><span class="chip all">All versions</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <nav aria-label="Sections">
+    <ol>
+      <li><a href="#who">Who we are</a></li>
+      <li><a href="#device">On your device</a></li>
+      <li><a href="#ads">Ads</a></li>
+      <li><a href="#choices">Your choices</a></li>
+      <li><a href="#purchases">In-app purchases</a></li>
+      <li><a href="#steam">Steam</a></li>
+      <li><a href="#children">Children</a></li>
+      <li><a href="#rights">Your rights</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section id="who">
+      <h2>Who we are</h2>
+      <p>glide<span class="dot">.</span> is made by Yehia Waleed Development ("we", "us"). This policy covers the game on Google Play (Android phones and tablets), Google Play Games on PC, and Steam (Windows). If you have a question about it, the <a href="#contact">contact section</a> says how to reach us.</p>
+    </section>
+
+    <section id="device">
+      <h2>What stays on your device</h2>
+      <p>The game saves your progress locally: high scores, distance records, coins, ranks, unlocked items, missions, challenges, achievements, your settings and any levels you build. None of this is sent to us or to anyone else. We do not run servers for glide. and have no copy of your save.</p>
+      <p>Level sharing works with codes you copy and paste yourself. The game reads your clipboard only when you tap Import, and only to load the level code you copied.</p>
+      <p>To delete your saved data, use <strong>Records &rarr; Reset the whole game</strong> in the menu, or uninstall the game.</p>
+    </section>
+
+    <section id="ads">
+      <h2>Ads (Android and Google Play Games on PC)</h2>
+      <p>The free Android version shows optional rewarded ads. You only see one if you choose to, for example by tapping Revive after a crash. To have an ad ready, the game starts Google's ad service when it opens and loads an ad in the background.</p>
+      <p>The ads are provided by <strong>Google AdMob</strong>. To show ads, measure them and prevent fraud, Google may collect:</p>
+      <ul>
+        <li>your device's advertising ID and app set ID</li>
+        <li>your IP address, which gives an approximate location</li>
+        <li>device information such as model, operating system and language</li>
+        <li>how you interact with ads, and diagnostics about the ad service</li>
+      </ul>
+      <p>If you agree, Google may use this to show ads based on your interests. If you don't, or if you're in a region where consent is required and you decline, you still get ads, but they're not personalised. Ads in glide. are limited to content suitable for teens.</p>
+      <p>Google handles this data under its own policies: <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from apps that use its services</a> and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>. We do not receive your advertising ID or any of this data ourselves. We only see totals in AdMob, such as how many ads were shown.</p>
+    </section>
+
+    <section id="choices">
+      <h2>Your choices</h2>
+      <ul>
+        <li><strong>Ad consent (EEA, UK and Switzerland).</strong> On first launch, a Google consent form asks how ads may use your data. You can change your answer at any time in <strong>Settings &rarr; Ad privacy</strong>.</li>
+        <li><strong>Personalised ads.</strong> On Android you can reset or delete your advertising ID in your device's settings (Settings &rarr; Privacy &rarr; Ads, or Google &rarr; Ads). Google's <a href="https://myadcenter.google.com" target="_blank" rel="noopener">My Ad Center</a> controls ad personalisation across Google.</li>
+        <li><strong>No ads at all.</strong> The Steam version has no ads. On Android, ads only play when you choose to watch one.</li>
+      </ul>
+    </section>
+
+    <section id="purchases">
+      <h2>In-app purchases</h2>
+      <p>glide. sells optional in-app purchases, such as coin packs. Everything in the game can also be earned by playing.</p>
+      <p>Payments are made through your Google Play account, and Google handles them under the <a href="https://payments.google.com/payments/apis-secure/u/0/get_legal_document?ldo=0&amp;ldt=privacynotice" target="_blank" rel="noopener">Google Payments Privacy Notice</a>. We never see your card, bank or billing details. The game only receives a confirmation from Google Play (which item and an order number), so it can check the purchase is genuine and add what you bought to your save. Refunds go through Google Play.</p>
+      <p>If purchases are added to the Steam version, Steam handles payment in the same way, and we likewise only receive confirmation of the purchase.</p>
+    </section>
+
+    <section id="steam">
+      <h2>Steam (Windows)</h2>
+      <p>The Steam version shows no ads and sends no data to us. Steam itself is run by Valve, and your Steam account is covered by <a href="https://store.steampowered.com/privacy_agreement/" target="_blank" rel="noopener">Valve's Privacy Policy</a>.</p>
+    </section>
+
+    <section id="children">
+      <h2>Children</h2>
+      <p>glide. is meant for players aged 13 and over and is not directed at children under 13. We do not knowingly collect personal information from children. If you believe a child under 13 has used the Android version and you have a concern, contact us and we'll help.</p>
+    </section>
+
+    <section id="rights">
+      <h2>Your rights</h2>
+      <p>Depending on where you live (for example under the GDPR in the EU, the UK GDPR, or California's CCPA), you may have the right to access, correct or delete your personal data, to object to or limit how it's used, and to withdraw consent.</p>
+      <p>Because we don't hold personal data about you, most requests are handled by the controls above or by Google, which processes the ad data. For ads, the legal basis is your consent where the law requires it. We don't sell your personal information. If you need help with a request, contact us and we'll reply within 30 days.</p>
+    </section>
+
+    <section id="security">
+      <h2>Security and retention</h2>
+      <p>Your save stays on your device until you reset the game or uninstall it. Data collected by Google for ads is kept and protected under Google's policies linked above.</p>
+    </section>
+
+    <section id="changes">
+      <h2>Changes to this policy</h2>
+      <p>If the game starts handling data differently, we'll update this page and change the effective date at the top. Significant changes will also be noted in the game's update notes.</p>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <p>Yehia Waleed Development</p>
+      <div class="email-row">
+        <span class="email" id="email">gamesappsyhia@gmail.com</span>
+        <button type="button" id="copy-email">Copy email</button>
+      </div>
+      <p class="muted" id="copy-note" aria-live="polite">Questions about privacy, data requests or anything else about glide.</p>
+    </section>
+  </main>
+
+  <footer>glide. &middot; Yehia Waleed Development &middot; Effective 4 November 2026</footer>
+</div>
+
+<script>
+  (function () {
+    var button = document.getElementById("copy-email");
+    var note = document.getElementById("copy-note");
+    var email = document.getElementById("email");
+    button.addEventListener("click", function () {
+      var text = email.textContent.trim();
+      function selectIt() {
+        var range = document.createRange();
+        range.selectNodeContents(email);
+        var selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        note.textContent = "Selected. Press Ctrl+C (or Cmd+C) to copy.";
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          button.textContent = "Copied";
+          note.textContent = "Email copied.";
+          setTimeout(function () { button.textContent = "Copy email"; }, 1800);
+        }, selectIt);
+      } else {
+        selectIt();
+      }
+    });
+  })();
+</script>
+</body>
+</html>
