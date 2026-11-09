@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yehia Waleed · glide.</title>
+<meta name="description" content="glide. is a calm, fast endless runner by independent developer Yehia Waleed. Steer, boost, thread the gaps. Just one more run.">
+<meta property="og:title" content="glide. by Yehia Waleed">
+<meta property="og:description" content="A calm, fast endless runner. Steer, boost, thread the gaps. Just one more run.">
+<meta property="og:image" content="images/storm.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f6f6f8">
+<link rel="icon" href="images/icon.png" type="image/png">
+<link rel="apple-touch-icon" href="images/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;500&family=Figtree:wght@400;500;600&display=swap">
+<style>
+  /* Same family as the privacy policy: the game's light greys, its red cube and its coin gold. */
+  :root {
+    --bg: #f6f6f8;
+    --surface: #ffffff;
+    --ink: #1c1c21;
+    --muted: #5c5d68;
+    --line: #e2e2e8;
+    --red: #db1f24;
+    --gold: #e9a314;
+    --gold-ink: #8a5f00;
+    --gold-soft: #fbf1d8;
+    --discord: #5865f2;
+    --display: "Outfit", "Segoe UI", system-ui, sans-serif;
+    --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+    --radius: 22px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121215; --surface: #1a1a1f; --ink: #ececf1; --muted: #9b9ca8; --line: #2b2b33;
+      --red: #ff4b50; --gold: #f0b43a; --gold-ink: #f0b43a; --gold-soft: #2e2615; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121215; --surface: #1a1a1f; --ink: #ececf1; --muted: #9b9ca8; --line: #2b2b33;
+    --red: #ff4b50; --gold: #f0b43a; --gold-ink: #f0b43a; --gold-soft: #2e2615; color-scheme: dark;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 16px/1.65 var(--body);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  /* ---- Top bar */
+  .bar {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding-block: 18px;
+  }
+  .me { font: 500 15px/1 var(--display); letter-spacing: 0.02em; text-decoration: none; }
+  .bar nav { display: flex; gap: 22px; font-size: 15px; }
+  .bar nav a { text-decoration: none; color: var(--muted); }
+  .bar nav a:hover { color: var(--ink); }
+  @media (max-width: 520px) { .bar nav { gap: 16px; font-size: 14px; } .bar nav .hide-sm { display: none; } }
+
+  /* ---- Hero */
+  .hero { display: grid; gap: 28px; padding-block: 48px 64px; }
+  .eyebrow { font: 500 13px/1 var(--body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0; }
+  .wordmark {
+    font: 200 clamp(84px, 19vw, 168px)/0.9 var(--display);
+    letter-spacing: -0.03em;
+    margin: 0;
+    display: flex; align-items: flex-start; gap: 0.08em;
+    animation: glide-in 1s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .wordmark .dot { color: var(--red); }
+  .wordmark .cube {
+    width: 0.32em; height: 0.32em; margin-top: 0.12em; margin-left: 0.06em;
+    background: var(--red); border-radius: 0.03em;
+    box-shadow: -0.05em 0.05em 0 rgba(0,0,0,0.12);
+  }
+  .tagline { font: 300 clamp(22px, 4.2vw, 32px)/1.3 var(--display); margin: 0; max-width: 22ch; text-wrap: balance; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 22px; border-radius: 999px;
+    font: 600 15px/1 var(--body); text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn.primary { background: var(--gold); color: #fff; box-shadow: 0 4px 0 rgba(0,0,0,0.12); }
+  .btn.primary:hover { transform: translateY(-1px); box-shadow: 0 6px 0 rgba(0,0,0,0.12); }
+  .btn.ghost { background: var(--surface); border: 1px solid var(--line); color: var(--muted); }
+  .btn .tri { width: 0; height: 0; border-left: 9px solid currentColor; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+  .soon { font-weight: 500; font-size: 12px; background: var(--gold-soft); color: var(--gold-ink); padding: 4px 8px; border-radius: 999px; }
+
+  .shot {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: 0 30px 60px -30px rgba(20,20,30,0.35);
+    background: var(--surface);
+  }
+  .hero .shot { animation: rise 1s .15s cubic-bezier(.2,.8,.2,1) both; }
+  @keyframes glide-in { from { transform: translateX(-32px); opacity: 0.001; } to { transform: none; opacity: 1; } }
+  @keyframes rise { from { transform: translateY(24px); opacity: 0.001; } to { transform: none; opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .wordmark, .hero .shot { animation: none; } html { scroll-behavior: auto; } }
+
+  /* ---- Sections */
+  section { padding-block: 56px; border-top: 1px solid var(--line); }
+  h2 { font: 300 clamp(30px, 5vw, 44px)/1.15 var(--display); margin: 0 0 12px; letter-spacing: -0.01em; }
+  .lede { color: var(--muted); font-size: 18px; margin: 0 0 32px; max-width: 60ch; }
+
+  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+  .feature {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
+    padding: 22px;
+  }
+  .feature h3 { font: 500 18px/1.3 var(--display); margin: 0 0 6px; }
+  .feature p { margin: 0; color: var(--muted); font-size: 15px; }
+  .feature .mark { width: 10px; height: 10px; border-radius: 3px; margin-bottom: 16px; background: var(--red); }
+  .feature:nth-child(2) .mark { background: var(--gold); border-radius: 50%; }
+  .feature:nth-child(3) .mark { background: var(--ink); }
+  .feature:nth-child(4) .mark { background: #2fbf9f; border-radius: 50%; }
+
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 8px; }
+  .gallery figure { margin: 0; }
+  .gallery figcaption { font-size: 14px; color: var(--muted); padding: 10px 4px 0; }
+  @media (max-width: 760px) {
+    /* A swipeable strip on phones, each shot most of the screen wide. */
+    .gallery {
+      grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 84%;
+      overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px;
+      margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+      padding-inline: max(16px, env(safe-area-inset-left, 0px));
+      scrollbar-width: none;
+    }
+    .gallery::-webkit-scrollbar { display: none; }
+    .gallery figure { scroll-snap-align: center; }
+  }
+
+  .promise {
+    margin-top: 32px;
+    display: flex; flex-wrap: wrap; gap: 10px;
+  }
+  .promise span {
+    background: var(--gold-soft); color: var(--gold-ink);
+    font: 600 14px/1 var(--body); padding: 10px 14px; border-radius: 999px;
+  }
+
+  /* ---- Community */
+  .community {
+    display: grid; grid-template-columns: 1fr auto; gap: 24px 40px; align-items: center;
+  }
+  .community .lede { margin-bottom: 20px; }
+  .perks { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .perks li {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+    padding: 8px 14px; font-size: 14px; font-weight: 500;
+  }
+  .perks .pip { width: 8px; height: 8px; border-radius: 2px; background: var(--discord); }
+  .btn.discord { background: var(--discord); color: #fff; box-shadow: 0 4px 0 rgba(0,0,0,0.15); padding: 18px 26px; font-size: 16px; }
+  .btn.discord:hover { transform: translateY(-1px); box-shadow: 0 6px 0 rgba(0,0,0,0.15); }
+  .btn .arrow { transition: transform .15s ease; }
+  .btn.discord:hover .arrow { transform: translateX(3px); }
+  @media (max-width: 700px) { .community { grid-template-columns: 1fr; } .btn.discord { justify-self: start; } }
+
+  /* ---- About */
+  .about { display: grid; grid-template-columns: 120px 1fr; gap: 32px; align-items: start; }
+  .about .icon { width: 120px; border-radius: 28px; border: 1px solid var(--line); }
+  .about p { margin: 0 0 14px; max-width: 60ch; }
+  .about .muted { color: var(--muted); }
+  @media (max-width: 560px) { .about { grid-template-columns: 1fr; gap: 20px; } .about .icon { width: 88px; border-radius: 22px; } }
+  .contact { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--gold); padding-bottom: 2px; }
+
+  /* ---- Footer */
+  footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+  footer nav { display: flex; gap: 20px; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+</style>
+</head>
+<body>
+  <header class="wrap bar">
+    <a class="me" href="#">Yehia Waleed</a>
+    <nav>
+      <a href="#glide">glide.</a>
+      <a href="https://discord.gg/kK9yUdUTJz" target="_blank" rel="noopener">Discord</a>
+      <a class="hide-sm" href="#about">About</a>
+      <a class="hide-sm" href="privacypolicy.html">Privacy</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="wrap hero" id="glide">
+      <p class="eyebrow">A game by Yehia Waleed</p>
+      <h1 class="wordmark" aria-label="glide."><span>glide<span class="dot">.</span></span><span class="cube" aria-hidden="true"></span></h1>
+      <p class="tagline">A calm, fast endless runner. Steer, boost, thread the gaps. Just one more run.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.glidegame" rel="noopener"><span class="tri" aria-hidden="true"></span>Get it on Google Play</a>
+        <span class="btn ghost">Steam <span class="soon">Coming soon</span></span>
+      </div>
+      <div class="shot">
+        <img src="images/storm.jpg" width="1600" height="900" alt="glide. gameplay: the red cube races down a white track into a Block Storm, coins lined up ahead.">
+      </div>
+    </div>
+
+    <section>
+      <div class="wrap">
+        <h2>Easy to learn, hard to put down</h2>
+        <p class="lede">Guide your cube down an endless track, slip through the gaps between blocks and chain near misses to push your multiplier higher. Every run is quick to start and hard to stop.</p>
+        <div class="features">
+          <div class="feature">
+            <div class="mark"></div>
+            <h3>Steer, boost, brake</h3>
+            <p>Hold boost for double points. Brake when it gets tight. The closer you cut it, the more you score.</p>
+          </div>
+          <div class="feature">
+            <div class="mark"></div>
+            <h3>Always something to chase</h3>
+            <p>New missions every run, challenges that change how you play, ranks, a daily bonus and global leaderboards.</p>
+          </div>
+          <div class="feature">
+            <div class="mark"></div>
+            <h3>Make it yours</h3>
+            <p>Collect cubes, hats, trails and worlds as you get better.</p>
+          </div>
+          <div class="feature">
+            <div class="mark"></div>
+            <h3>Plays anywhere</h3>
+            <p>Phones, tablets, foldables, Chromebooks and Google Play Games on PC. Works offline.</p>
+          </div>
+        </div>
+
+        <div class="gallery" aria-label="Screenshots">
+          <figure>
+            <img src="images/shield.jpg" width="1280" height="720" loading="lazy" alt="A shield saves the cube from a crash at speed.">
+            <figcaption>Shields, powerups and close calls</figcaption>
+          </figure>
+          <figure>
+            <img src="images/nearmiss.jpg" width="1280" height="720" loading="lazy" alt="The cube skims past a wall of pillars at speed for a triple near miss.">
+            <figcaption>Cut it close for near-miss streaks</figcaption>
+          </figure>
+          <figure>
+            <img src="images/menu.jpg" width="1280" height="720" loading="lazy" alt="The main menu with your rank, highscore and next challenge.">
+            <figcaption>Ranks, challenges and a daily bonus</figcaption>
+          </figure>
+        </div>
+
+        <div class="promise" aria-label="How ads work in glide.">
+          <span>Free to play</span>
+          <span>No pop-up ads, no banners</span>
+          <span>Only ads you choose to watch</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="community">
+      <div class="wrap community">
+        <div>
+          <h2>Join the community</h2>
+          <p class="lede">The glide. Discord is where it all happens: report a bug, join play tests of new updates, enter giveaways and hear what's coming first.</p>
+          <ul class="perks">
+            <li><span class="pip"></span>Bug reports</li>
+            <li><span class="pip"></span>Play tests</li>
+            <li><span class="pip"></span>Giveaways</li>
+            <li><span class="pip"></span>News and sneak peeks</li>
+          </ul>
+        </div>
+        <a class="btn discord" href="https://discord.gg/kK9yUdUTJz" target="_blank" rel="noopener">Join the Discord<span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about">
+        <img class="icon" src="images/icon.png" width="256" height="256" alt="The glide. app icon: a red cube between dark blocks.">
+        <div>
+          <h2>Hi, I'm Yehia Waleed</h2>
+          <p>I'm an independent game developer. I made glide. on my own, from the first prototype to the last menu, and I keep working on it to make every run feel a little better.</p>
+          <p class="muted">Found a bug, have an idea, or just want to say hi? Come say it on <a href="https://discord.gg/kK9yUdUTJz" target="_blank" rel="noopener">Discord</a>, or email me. I read every message.</p>
+          <a class="contact" href="mailto:gamesappsyhia@gmail.com">gamesappsyhia@gmail.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Yehia Waleed</span>
+      <nav>
+        <a href="https://discord.gg/kK9yUdUTJz" target="_blank" rel="noopener">Discord</a>
+        <a href="privacypolicy.html">Privacy Policy</a>
+        <a href="mailto:gamesappsyhia@gmail.com">Contact</a>
+      </nav>
+    </div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
